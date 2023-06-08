@@ -3,6 +3,8 @@
     height: 120px;
     background: #C3C3C3;
     box-shadow: 4px 4px 0px #818181;
+
+    /* УБРАТЬ МАРДЖИН */
     margin:15px;
 }
 
