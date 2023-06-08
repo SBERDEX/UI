@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'Grotesque';
+  src: url("../../../public/fonts/terminal-grotesque.ttf");
+  /* font-weight: normal;
+  font-style: normal; */
+}
 * {
   box-sizing: border-box;
   padding: 0;
