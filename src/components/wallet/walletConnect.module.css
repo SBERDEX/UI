@@ -49,3 +49,52 @@
     color: #000000;
 }
 
+.adressContainer{
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-top: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.statusContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 11px;
+}
+
+.addressContainer{
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+
+.statusText{
+    margin-right: 117px;
+    font-family: 'Grotesque';
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 24px;
+    color: #000000;
+}
+
+.addressText{
+    font-family: 'Grotesque';
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 24px;
+    color: #000000;
+    margin-right: 10px;
+}
+
+.address{
+    font-family: 'Grotesque';
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 24px;
+    color: #000000;
+}

@@ -3,6 +3,8 @@ import styles from "./walletConnect.module.css";
 import { useEffect, useState } from "react";
 import defaultProvider from "../../abi/defaultProvider";
 import walletProvider from "../../abi/walletProvider";
+import Image from "next/image";
+import tick from "../../../public/Icons/StatusCheck.png"
 
 const walletConnect = () => {
     const [currentAccount, setCurrentAccount] = useState();
@@ -23,7 +25,25 @@ const walletConnect = () => {
                 <p className={styles.headerText}>Wallet</p>
              </div>
              
-                {currentAccount ? <p>{currentAccount}</p> : <div className={styles.mainPart}><button onClick={handleWalletConnect} className={styles.button}>Connect wallet</button></div>}
+                {currentAccount ?
+                    <div className={styles.adressContainer}>
+
+                        <div className={styles.statusContainer}>
+                            <p className={styles.statusText}>Wallet status: connected!</p>
+                            <Image src={tick} width={26} height={26} alt="Icon that means that your wallet is connected" />
+                        </div>
+
+                        <div className={styles.addressContainer}>
+                            <p className={styles.addressText}>User: </p>
+                            <p className={styles.address}>{currentAccount.substring(0,6)}...{currentAccount.substring(38)}</p>
+                        </div>
+
+
+                    </div> : <div className={styles.mainPart}>
+
+                        <button onClick={handleWalletConnect} className={styles.button}>Connect wallet</button>
+
+                    </div>}
              
         </div>
     );
