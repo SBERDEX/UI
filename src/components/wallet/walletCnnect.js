@@ -11,10 +11,10 @@ const walletConnect = () => {
 
     const handleWalletConnect = async () =>{
         const accounts = await walletProvider.send("eth_requestAccounts", []);
-        const accountsMM = await window.ethereum.request({
-            method: "eth_requestAccounts",
-            params: [],
-        })
+        // const accountsMM = await window.ethereum.request({
+        //     method: "eth_requestAccounts",
+        //     params: [],
+        // })
         console.log(accounts[0]);
         setCurrentAccount(accounts[0]);
     }
