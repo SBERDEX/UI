@@ -2,12 +2,18 @@
 import styles from "./walletConnect.module.css";
 import { useEffect, useState } from "react";
 import defaultProvider from "../../abi/defaultProvider";
-import walletProvider from "../../abi/walletProvider";
 import Image from "next/image";
 import tick from "../../../public/Icons/StatusCheck.png"
+import { BrowserProvider } from "ethers";
 
 const walletConnect = () => {
     const [currentAccount, setCurrentAccount] = useState();
+
+    let walletProvider;
+    useEffect(()=>{
+        walletProvider = new BrowserProvider(window.ethereum);
+        setCurrentAccount(localStorage.getItem("adress"));
+    },[])
 
     const handleWalletConnect = async () =>{
         const accounts = await walletProvider.send("eth_requestAccounts", []);
@@ -17,6 +23,7 @@ const walletConnect = () => {
         // })
         console.log(accounts[0]);
         setCurrentAccount(accounts[0]);
+        localStorage.setItem("adress", accounts[0])
     }
 
     return (
