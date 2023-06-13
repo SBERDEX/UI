@@ -1,9 +1,10 @@
+"use client";
 import { createSlice } from "@reduxjs/toolkit";
 
 const accountSlice = createSlice({
     name: "account",
     initialState: {
-        acconut: localStorage.getItem(localStorage.getItem("adress")),
+        acconut: "",
     },
     reducers: {
         setAccount(state, action){

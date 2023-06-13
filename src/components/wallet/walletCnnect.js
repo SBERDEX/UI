@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import styles from "./walletConnect.module.css";
 import { useEffect, useState } from "react";
 import defaultProvider from "../../abi/defaultProvider";
