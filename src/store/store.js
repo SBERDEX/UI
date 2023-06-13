@@ -4,6 +4,6 @@ import accountReducer from "./accountSlice";
 
 export default configureStore({
     reducer: {
-        accountReducer: accountReducer,
+        account: accountReducer,
     },
 });

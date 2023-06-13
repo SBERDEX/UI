@@ -5,25 +5,28 @@ import defaultProvider from "../../abi/defaultProvider";
 import Image from "next/image";
 import tick from "../../../public/Icons/StatusCheck.png"
 import { BrowserProvider } from "ethers";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { setAccount } from "@/store/accountSlice";
 
 const walletConnect = () => {
-    const [currentAccount, setCurrentAccount] = useState();
+    // const [currentAccount, setCurrentAccount] = useState();
+    const currentAccount = useSelector(state => state.account.account);
+    const dispatch = useDispatch();
 
     let walletProvider;
     useEffect(()=>{
         walletProvider = new BrowserProvider(window.ethereum);
-        setCurrentAccount(localStorage.getItem("adress"));
+        // setCurrentAccount();
+        dispatch(setAccount(localStorage.getItem("adress")));
     },[])
 
     const handleWalletConnect = async () =>{
         const accounts = await walletProvider.send("eth_requestAccounts", []);
-        // const accountsMM = await window.ethereum.request({
-        //     method: "eth_requestAccounts",
-        //     params: [],
-        // })
         console.log(accounts[0]);
-        setCurrentAccount(accounts[0]);
+        dispatch(setAccount(accounts[0]))
         localStorage.setItem("adress", accounts[0])
+        console.log(currentAccount);
     }
 
     return (

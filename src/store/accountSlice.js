@@ -1,14 +1,13 @@
 "use client";
 import { createSlice } from "@reduxjs/toolkit";
-
 const accountSlice = createSlice({
     name: "account",
     initialState: {
-        acconut: "",
+        acconut: null,
     },
     reducers: {
         setAccount(state, action){
-            acconut = action
+            state.acconut = action.payload;
         },
         disconnectAccount(state, action){
 
