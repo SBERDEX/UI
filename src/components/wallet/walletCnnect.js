@@ -8,18 +8,15 @@ import { BrowserProvider } from "ethers";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setAccount } from "@/store/accountSlice";
+import walletProvider from "@/abi/walletProvider";
 
 const walletConnect = () => {
     const currentAccount = useSelector(state => state.account.account);
-    const [walletProvider, setWalletProvider] = useState(null);
     const dispatch = useDispatch();
-
-    useEffect(()=>{
-        setWalletProvider(new BrowserProvider(window.ethereum));
-    },[])
 
     useEffect(() =>{
         getCurrentWalletConnected();
+        walletListener();
     })
 
     const handleWalletConnect = async () =>{
@@ -36,13 +33,23 @@ const walletConnect = () => {
         }
     }
 
+    const walletListener = async () =>{
+        if(typeof window != "undefined" && typeof window.ethereum != "undefined"){
+            window.ethereum.on("accountChanged", (accounts) =>{
+                dispatch(setAccount(accounts[0]));
+            });
+        } else{
+            dispatch(setAccount(""))
+        }
+    }
+
     return (
         <div className={styles.mainContainer}>
              <div className={styles.header}>
                 <p className={styles.headerText}>Wallet</p>
              </div>
              
-                {currentAccount ?
+                {(currentAccount && currentAccount.length > 0) ?
                     <div className={styles.adressContainer}>
 
                         <div className={styles.statusContainer}>
