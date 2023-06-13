@@ -10,14 +10,12 @@ import { useDispatch } from "react-redux";
 import { setAccount } from "@/store/accountSlice";
 
 const walletConnect = () => {
-    // const [currentAccount, setCurrentAccount] = useState();
     const currentAccount = useSelector(state => state.account.account);
     const [walletProvider, setWalletProvider] = useState(null);
     const dispatch = useDispatch();
 
     useEffect(()=>{
         setWalletProvider(new BrowserProvider(window.ethereum));
-        // setCurrentAccount();
         dispatch(setAccount(localStorage.getItem("adress")));
     },[])
 
@@ -27,11 +25,8 @@ const walletConnect = () => {
 
     const handleWalletConnect = async () =>{
         const accounts = await walletProvider?.send("eth_requestAccounts", []);
-        // console.log(accounts[0]);
         dispatch(setAccount(accounts[0]));
-        // currentAccount = accounts[0];
         localStorage.setItem("adress", accounts[0])
-        // console.log(() => currentAccount);
     }
 
     return (
