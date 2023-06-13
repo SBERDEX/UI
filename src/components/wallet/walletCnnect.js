@@ -16,17 +16,24 @@ const walletConnect = () => {
 
     useEffect(()=>{
         setWalletProvider(new BrowserProvider(window.ethereum));
-        dispatch(setAccount(localStorage.getItem("adress")));
     },[])
 
     useEffect(() =>{
-        console.log(currentAccount)
-    }, [currentAccount])
+        getCurrentWalletConnected();
+    })
 
     const handleWalletConnect = async () =>{
         const accounts = await walletProvider?.send("eth_requestAccounts", []);
         dispatch(setAccount(accounts[0]));
-        localStorage.setItem("adress", accounts[0])
+    }
+
+    const getCurrentWalletConnected = async () =>{
+        const accounts = await walletProvider?.send("eth_accounts", []);
+        if(accounts && accounts.length > 0){
+            dispatch(setAccount(accounts[0]));
+        } else{
+            dispatch(setAccount(""));
+        }
     }
 
     return (
