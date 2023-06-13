@@ -2,8 +2,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 import accountReducer from "./accountSlice";
 
-export default configureStore({
+export const store = configureStore({
     reducer: {
         account: accountReducer,
     },
 });
+

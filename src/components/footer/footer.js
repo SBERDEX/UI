@@ -9,7 +9,7 @@ const Footer = () => {
                 <p className={styles.footerText}>SBERDEX by MetaZK</p>
                 {/* <p className={styles.footerText}>2023</p> */}
                 <div className={styles.walletStatus}>
-                    <Image />
+                    {/* <Image /> */}
                     <p className={styles.walletStatusText}>Wallet Connected</p>
                 </div>
         </div>

@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import styles from "./walletConnect.module.css";
 import { useEffect, useState } from "react";
 import defaultProvider from "../../abi/defaultProvider";
@@ -12,21 +12,26 @@ import { setAccount } from "@/store/accountSlice";
 const walletConnect = () => {
     // const [currentAccount, setCurrentAccount] = useState();
     const currentAccount = useSelector(state => state.account.account);
+    const [walletProvider, setWalletProvider] = useState(null);
     const dispatch = useDispatch();
 
-    let walletProvider;
     useEffect(()=>{
-        walletProvider = new BrowserProvider(window.ethereum);
+        setWalletProvider(new BrowserProvider(window.ethereum));
         // setCurrentAccount();
         dispatch(setAccount(localStorage.getItem("adress")));
     },[])
 
+    useEffect(() =>{
+        console.log(currentAccount)
+    }, [currentAccount])
+
     const handleWalletConnect = async () =>{
-        const accounts = await walletProvider.send("eth_requestAccounts", []);
-        console.log(accounts[0]);
-        dispatch(setAccount(accounts[0]))
+        const accounts = await walletProvider?.send("eth_requestAccounts", []);
+        // console.log(accounts[0]);
+        dispatch(setAccount(accounts[0]));
+        // currentAccount = accounts[0];
         localStorage.setItem("adress", accounts[0])
-        console.log(currentAccount);
+        // console.log(() => currentAccount);
     }
 
     return (
@@ -47,7 +52,6 @@ const walletConnect = () => {
                             <p className={styles.addressText}>User: </p>
                             <p className={styles.address}>{currentAccount.substring(0,6)}...{currentAccount.substring(38)}</p>
                         </div>
-
 
                     </div> : <div className={styles.mainPart}>
 
