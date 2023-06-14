@@ -23,9 +23,10 @@ const walletConnect = () => {
         if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
             try {
               /* MetaMask is installed */
-              const accounts = await window.ethereum.request({
-                method: "eth_requestAccounts",
-              });
+              const accounts = await walletProvider.send(
+                "eth_requestAccounts",
+                []
+              );
               dispatch(setAccount(accounts[0]));
               console.log(accounts[0]);
             } catch (err) {
@@ -40,9 +41,10 @@ const walletConnect = () => {
     const getCurrentWalletConnected = async () =>{
         if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
             try {
-              const accounts = await window.ethereum.request({
-                method: "eth_accounts",
-              });
+              const accounts = await walletProvider.send(
+                "eth_accounts",
+                []
+              );
               if (accounts.length > 0) {
                 dispatch(setAccount(accounts[0]));
                 console.log(accounts[0]);
