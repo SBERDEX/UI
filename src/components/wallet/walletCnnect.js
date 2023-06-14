@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import defaultProvider from "../../abi/defaultProvider";
 import Image from "next/image";
 import tick from "../../../public/Icons/StatusCheck.png"
-import { BrowserProvider } from "ethers";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setAccount } from "@/store/accountSlice";
