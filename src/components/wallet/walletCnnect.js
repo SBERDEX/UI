@@ -20,27 +20,55 @@ const walletConnect = () => {
     },[currentAccount])
 
     const handleWalletConnect = async () =>{
-        const accounts = await walletProvider?.send("eth_requestAccounts", []);
-        dispatch(setAccount(accounts[0]));
+        if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
+            try {
+              /* MetaMask is installed */
+              const accounts = await window.ethereum.request({
+                method: "eth_requestAccounts",
+              });
+              dispatch(setAccount(accounts[0]));
+              console.log(accounts[0]);
+            } catch (err) {
+              console.error(err.message);
+            }
+          } else {
+            /* MetaMask is not installed */
+            console.log("Please install MetaMask");
+          }
     }
 
     const getCurrentWalletConnected = async () =>{
-        const accounts = await walletProvider?.send("eth_accounts", []);
-        if(accounts && accounts.length > 0){
-            dispatch(setAccount(accounts[0]));
-        } else{
-            dispatch(setAccount(""));
-        }
+        if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
+            try {
+              const accounts = await window.ethereum.request({
+                method: "eth_accounts",
+              });
+              if (accounts.length > 0) {
+                dispatch(setAccount(accounts[0]));
+                console.log(accounts[0]);
+              } else {
+                console.log("Connect to MetaMask using the Connect button");
+              }
+            } catch (err) {
+              console.error(err.message);
+            }
+          } else {
+            /* MetaMask is not installed */
+            console.log("Please install MetaMask");
+          }
     }
 
     const walletListener = async () =>{
-        if(typeof window != "undefined" && typeof window.ethereum != "undefined"){
-            window.ethereum.on("accountChanged", (accounts) =>{
-                dispatch(setAccount(accounts[0]));
+        if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
+            window.ethereum.on("accountsChanged", (accounts) => {
+              dispatch(setAccount(accounts[0]));
+              console.log(accounts[0]);
             });
-        } else{
-            dispatch(setAccount(""))
-        }
+          } else {
+            /* MetaMask is not installed */
+            dispatch(setAccount(""));
+            console.log("Please install MetaMask");
+          }
     }
 
     return (
