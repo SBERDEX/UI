@@ -17,7 +17,7 @@ const walletConnect = () => {
     useEffect(() =>{
         getCurrentWalletConnected();
         walletListener();
-    })
+    },[currentAccount])
 
     const handleWalletConnect = async () =>{
         const accounts = await walletProvider?.send("eth_requestAccounts", []);
