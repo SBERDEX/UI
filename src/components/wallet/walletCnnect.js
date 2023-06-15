@@ -1,7 +1,6 @@
 'use client';
 import styles from "./walletConnect.module.css";
-import { useEffect, useState } from "react";
-import defaultProvider from "../../abi/defaultProvider";
+import { useEffect } from "react";
 import Image from "next/image";
 import tick from "../../../public/Icons/StatusCheck.png"
 import { useSelector } from "react-redux";
@@ -27,7 +26,6 @@ const walletConnect = () => {
     const handleWalletConnect = async () =>{
         if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
             try {
-              /* MetaMask is installed */
               const accounts = await walletProvider.send(
                 "eth_requestAccounts",
                 []
@@ -38,8 +36,7 @@ const walletConnect = () => {
               console.error(err.message);
             }
           } else {
-            /* MetaMask is not installed */
-            console.log("Please install MetaMask");
+            alert("Please install MetaMask");
           }
     }
 
@@ -60,8 +57,7 @@ const walletConnect = () => {
               console.error(err.message);
             }
           } else {
-            /* MetaMask is not installed */
-            console.log("Please install MetaMask");
+            alert("Please install MetaMask");
           }
     }
 
@@ -72,9 +68,8 @@ const walletConnect = () => {
               console.log(accounts[0]);
             });
           } else {
-            /* MetaMask is not installed */
             dispatch(setAccount(""));
-            console.log("Please install MetaMask");
+            alert("Please install MetaMask");
           }
     }
 

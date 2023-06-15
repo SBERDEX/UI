@@ -15,7 +15,7 @@ export function Providers({children}){
         <Provider store={store}>
             <GlobalStyles />
             <ThemeProvider theme={original}>
-            {children}
+                {children}
             </ThemeProvider>
         </Provider>
     )
