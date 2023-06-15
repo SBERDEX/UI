@@ -8,6 +8,8 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setAccount } from "@/store/accountSlice";
 import walletProvider from "@/abi/walletProvider";
+import { Button } from "react95";
+import styled from 'styled-components';
 
 const walletConnect = () => {
     const currentAccount = useSelector(state => state.account.account);
@@ -93,7 +95,7 @@ const walletConnect = () => {
 
                     </div> : <div className={styles.mainPart}>
 
-                        <button onClick={handleWalletConnect} className={styles.button}>Connect wallet</button>
+                        <Button variant='raised' size='lg' primary fullWidth onClick={handleWalletConnect}><p className={styles.button}>Connect wallet</p></Button>
 
                     </div>}
              
