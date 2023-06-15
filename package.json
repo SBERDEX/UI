@@ -19,5 +19,8 @@
     "react95": "^4.0.0",
     "styled-components": "^5.3.11",
     "utf-8-validate": "^5.0.10"
+  },
+  "devDependencies": {
+    "file-loader": "^6.2.0"
   }
 }
