@@ -11,6 +11,10 @@ import walletProvider from "@/abi/walletProvider";
 import { Button } from "react95";
 import styled from 'styled-components';
 
+const StyledButton = styled(Button)`
+  height: 60px;
+`
+
 const walletConnect = () => {
     const currentAccount = useSelector(state => state.account.account);
     const dispatch = useDispatch();
@@ -95,7 +99,7 @@ const walletConnect = () => {
 
                     </div> : <div className={styles.mainPart}>
 
-                        <Button variant='raised' size='lg' primary fullWidth onClick={handleWalletConnect}><p className={styles.button}>Connect wallet</p></Button>
+                        <StyledButton variant='raised' size='lg' primary fullWidth onClick={handleWalletConnect}><p className={styles.button}>Connect wallet</p></StyledButton>
 
                     </div>}
              
