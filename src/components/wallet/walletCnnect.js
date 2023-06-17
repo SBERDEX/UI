@@ -17,6 +17,9 @@ const StyledButton = styled(Button)`
   height: 60px;
 `
 
+const DisconectButton = styled(Button)`
+`
+
 const walletConnect = () => {
     const currentAccount = useSelector(state => state.account.account);
     const currentBalance = useSelector|(state => state.balance.balance);
@@ -110,6 +113,7 @@ const walletConnect = () => {
                         <div className={styles.addressContainer}>
                             <p className={styles.addressText}>User: </p>
                             <p className={styles.address}>{currentAccount.substring(0,6)}...{currentAccount.substring(38)}</p>
+                            <DisconectButton><p className={styles.disconnectButton}>Disconnect</p></DisconectButton>
                         </div>
 
                     </div> : <div className={styles.mainPart}>

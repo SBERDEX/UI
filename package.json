@@ -18,7 +18,9 @@
     "react-redux": "^8.1.0",
     "react95": "^4.0.0",
     "styled-components": "^5.3.11",
-    "utf-8-validate": "^5.0.10"
+    "utf-8-validate": "^5.0.10",
+    "viem": "^1.0.7",
+    "wagmi": "^1.2.0"
   },
   "devDependencies": {
     "file-loader": "^6.2.0"
