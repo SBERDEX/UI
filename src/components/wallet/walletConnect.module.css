@@ -76,7 +76,7 @@
 }
 
 .statusText{
-    margin-right: 117px;
+    /* margin-right: 117px; */
     font-family: 'Grotesque';
     font-weight: 400;
     font-size: 24px;
@@ -90,7 +90,6 @@
     font-size: 24px;
     line-height: 24px;
     color: #000000;
-    margin-right: 10px;
 }
 
 .address{
@@ -99,4 +98,5 @@
     font-size: 24px;
     line-height: 24px;
     color: #000000;
+    margin-left: 10px;
 }
