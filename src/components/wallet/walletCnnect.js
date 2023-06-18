@@ -20,6 +20,9 @@ const StyledButton = styled(Button)`
 `
 
 const DisconectButton = styled(Button)`
+  margin-left: 70px;
+  height: 30px;
+  margin-bottom: 23px;
 `
 
 const walletConnect = () => {
@@ -114,10 +117,10 @@ const walletConnect = () => {
 
                         <div className={styles.statusContainer}>
                             <p className={styles.statusText}>Balance: </p>
-                            <p className={styles.address}>{currentBalance} eth</p>
+                            <p className={styles.balance}>{currentBalance} eth</p>
                         </div>
 
-                        <div className={styles.addressContainer}>
+                        <div className={styles.addressContainerTwo}>
                             <p className={styles.addressText}>User: </p>
                             <p className={styles.address}>{currentAccount.substring(0,6)}...{currentAccount.substring(38)}</p>
                             <DisconectButton onClick={() => {disconnect()}}><p className={styles.disconnectButton}>Disconnect</p></DisconectButton>

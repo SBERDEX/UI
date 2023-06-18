@@ -73,10 +73,11 @@
     margin-bottom: 11px;
 }
 
-.addressContainer{
+.addressContainerTwo{
     display: flex;
     justify-content: space-between;
-    /* align-items: center; */
+    align-items: center;
+    /* margin-bottom: 23px; */
 }
 
 .statusText{
@@ -94,6 +95,16 @@
     font-size: 24px;
     line-height: 24px;
     color: #000000;
+    margin-bottom: 23px;
+}
+
+.balance{
+    font-family: 'Grotesque';
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 24px;
+    color: #000000;
+    margin-left: 10px;
 }
 
 .address{
@@ -103,4 +114,5 @@
     line-height: 24px;
     color: #000000;
     margin-left: 10px;
+    margin-bottom: 23px;
 }
