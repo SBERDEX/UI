@@ -12,6 +12,7 @@ import styled from 'styled-components';
 import defaultProvider from "@/abi/defaultProvider";
 import { formatEther } from "ethers";
 import { setBalance } from "@/store/balanceSlice";
+import { useAccount, useConnect, useDisconnect } from 'wagmi'
 
 const StyledButton = styled(Button)`
   height: 60px;
@@ -24,6 +25,7 @@ const walletConnect = () => {
     const currentAccount = useSelector(state => state.account.account);
     const currentBalance = useSelector|(state => state.balance.balance);
     const dispatch = useDispatch();
+    const { disconnect } = useDisconnect()
 
     useEffect(()=>{
           (async () => {
@@ -113,7 +115,7 @@ const walletConnect = () => {
                         <div className={styles.addressContainer}>
                             <p className={styles.addressText}>User: </p>
                             <p className={styles.address}>{currentAccount.substring(0,6)}...{currentAccount.substring(38)}</p>
-                            <DisconectButton><p className={styles.disconnectButton}>Disconnect</p></DisconectButton>
+                            <DisconectButton onClick={() => {disconnect()}}><p className={styles.disconnectButton}>Disconnect</p></DisconectButton>
                         </div>
 
                     </div> : <div className={styles.mainPart}>
