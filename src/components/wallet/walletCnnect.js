@@ -23,9 +23,10 @@ const DisconectButton = styled(Button)`
 
 const walletConnect = () => {
     const currentAccount = useSelector(state => state.account.account);
-    const currentBalance = useSelector|(state => state.balance.balance);
+    const currentBalance = useSelector(state => state.balnce.balance);
     const dispatch = useDispatch();
-    const { disconnect } = useDisconnect()
+    const { disconnect } = useDisconnect();
+    const { connectors, connect } = useConnect();
 
     useEffect(()=>{
           (async () => {
@@ -48,22 +49,22 @@ const walletConnect = () => {
       return formatEther(balance);
     }
 
-    const handleWalletConnect = async () =>{
-        if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
-            try {
-              const accounts = await walletProvider.send(
-                "eth_requestAccounts",
-                []
-              );
-              dispatch(setAccount(accounts[0]));
-              console.log(accounts[0]);
-            } catch (err) {
-              console.error(err.message);
-            }
-          } else {
-            alert("Please install MetaMask");
-          }
-    }
+    // const handleWalletConnect = async () =>{
+    //     if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
+    //         try {
+    //           const accounts = await walletProvider.send(
+    //             "eth_requestAccounts",
+    //             []
+    //           );
+    //           dispatch(setAccount(accounts[0]));
+    //           console.log(accounts[0]);
+    //         } catch (err) {
+    //           console.error(err.message);
+    //         }
+    //       } else {
+    //         alert("Please install MetaMask");
+    //       }
+    // }
 
     const getCurrentWalletConnected = async () =>{
         if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
@@ -120,7 +121,11 @@ const walletConnect = () => {
 
                     </div> : <div className={styles.mainPart}>
 
-                        <StyledButton variant='raised' size='lg' primary fullWidth onClick={handleWalletConnect}><p className={styles.button}>Connect wallet</p></StyledButton>
+                        {connectors.map((connector) => (
+                          <StyledButton  key={connector.id} variant='raised' size='lg' primary fullWidth onClick={() => connect({connector})}>
+                            <p className={styles.button}>Connect wallet</p>
+                          </StyledButton>
+                        ))}
 
                     </div>}
         </div>

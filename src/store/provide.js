@@ -36,7 +36,7 @@ const config = createConfig({
 export function Providers({children}){
     return(
         <Provider store={store}>
-            <WagmiConfig config={config}   >
+            <WagmiConfig config={config}>
                 <GlobalStyles />
                 <ThemeProvider theme={original}>
                     {children}
