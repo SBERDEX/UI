@@ -13,6 +13,7 @@ import defaultProvider from "@/abi/defaultProvider";
 import { formatEther } from "ethers";
 import { setBalance } from "@/store/balanceSlice";
 import { useAccount, useConnect, useDisconnect } from 'wagmi'
+import { useIsMounted } from "../hooks/useIsMounted";
 
 const StyledButton = styled(Button)`
   height: 60px;
@@ -30,6 +31,8 @@ const walletConnect = () => {
     const { connectors, connect } = useConnect();
     const {adress, isConnected} = useAccount();
 
+    const mounted = useIsMounted();
+
     useEffect(()=>{
           (async () => {
               try{
@@ -43,7 +46,6 @@ const walletConnect = () => {
                   console.error(error);
               }
           })()
-
     },[currentAccount])
 
     const getBalance = async () =>{
@@ -107,7 +109,7 @@ const walletConnect = () => {
                 <p className={styles.headerText}>Wallet</p>
              </div>
              
-                {(isConnected) ?
+                {(mounted && isConnected) ?
                     <div className={styles.adressContainer}>
 
                         <div className={styles.statusContainer}>
