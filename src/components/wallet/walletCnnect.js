@@ -23,14 +23,10 @@ const DisconectButton = styled(Button)`
 
 const walletConnect = () => {
     const currentAccount = useSelector(state => state.account.account);
-    const currentBalance = useSelector(state => state.balnce.balance);
+    const currentBalance = useSelector(state => state.balance.balance);
     const dispatch = useDispatch();
 
-    const { disconnect } = useDisconnect({
-      onError(error) {
-        console.log('Error', error)
-      },
-    });
+    const { disconnect } = useDisconnect();
     const { connectors, connect } = useConnect();
     const {adress, isConnected} = useAccount();
 

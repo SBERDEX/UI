@@ -6,7 +6,7 @@ import balanceReducer from "./balanceSlice"
 export const store = configureStore({
     reducer: {
         account: accountReducer,
-        balnce: balanceReducer
+        balance: balanceReducer
     },
 });
 

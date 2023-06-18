@@ -3,11 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 const balanceSlice = createSlice({
   name: "balance",
   initialState: {
-    account: "", // Исправлено с "acconut" на "account"
+    balance: "", // Исправлено с "acconut" на "account"
   },
   reducers: {
     setBalance(state, action) {
-      state.account = action.payload;
+      state.balance = action.payload;
     },
   },
 });
