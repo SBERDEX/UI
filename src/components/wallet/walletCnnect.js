@@ -25,8 +25,14 @@ const walletConnect = () => {
     const currentAccount = useSelector(state => state.account.account);
     const currentBalance = useSelector(state => state.balnce.balance);
     const dispatch = useDispatch();
-    const { disconnect } = useDisconnect();
+
+    const { disconnect } = useDisconnect({
+      onError(error) {
+        console.log('Error', error)
+      },
+    });
     const { connectors, connect } = useConnect();
+    const {adress, isConnected} = useAccount();
 
     useEffect(()=>{
           (async () => {
@@ -105,7 +111,7 @@ const walletConnect = () => {
                 <p className={styles.headerText}>Wallet</p>
              </div>
              
-                {(currentAccount && currentAccount.length > 0) ?
+                {(isConnected) ?
                     <div className={styles.adressContainer}>
 
                         <div className={styles.statusContainer}>
