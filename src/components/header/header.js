@@ -11,12 +11,12 @@ const Header = () => {
     <>
         <div className={styles.mainContainer}>
             <div className={styles.linkContainer}>
-                <Link href={""}>
+                <Link href="/liquidity">
                         <Image src={liqIcon} height={126} width={126} alt="liquidity icon"/>
                         <p className={styles.liqText}>Liquidity</p>
                 </Link>
 
-                <Link href={""}>
+                <Link href="/swap">
                         <Image src={swapIcon} height={120} width={120} alt="swap icon"/>
                         <p className={styles.swapText}>Swap</p>
                 </Link>
