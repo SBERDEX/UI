@@ -1,0 +1,37 @@
+.mainContainer{
+    padding-top: 10px;
+    height: 170px;
+    /* padding-left: 13px; */
+    padding-right: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.linkContainer{
+    display: flex;
+    align-items: center;
+    /* height: 200px; */
+    justify-content: space-between;
+}
+
+.liqText{
+    color: #FFFFFF;
+    font-family: 'Grotesque';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+}
+
+.swapText{
+    color: #FFFFFF;
+    margin-top: 6px;
+    font-family: 'Grotesque';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+}
