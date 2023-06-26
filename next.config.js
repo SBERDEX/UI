@@ -2,6 +2,10 @@
 const nextConfig = {
     env: {
         networkName: "goerli",
+    },
+    reactStrictMode: true,
+    compiler: {
+        styledComponents: true,
     }
       
 }
