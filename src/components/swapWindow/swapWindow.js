@@ -51,29 +51,6 @@ const SwapWindow = () => {
                 <div className={styles.header}>
                     <p className={styles.headerText}>Swap</p>
                 </div>
-{/* 
-                <div className={styles.body}>
-
-                <div className={styles.inputContainer}>
-                        <StyledInput fullWidth type="number"  placeholder="Type here..."/>
-                        <StyledSelect width={110} options={currencies} />
-                    </div>
-
-
-                    <SwitchButton>
-                        <Image src={switchIcon} width={31} height={32} alt="Switch icon" />
-                    </SwitchButton>
-
-                    <div className={styles.inputContainer}>
-                        <StyledInput fullWidth type="number"  placeholder="Type here..."/>
-                        <StyledSelect defaultValue={1}  width={110} options={currencies} />
-                    </div>
-
-                    <div className={styles.rate}>
-                        <p className={styles.rateText}>{"1"} {"USDT"} = {"80"} {"RUBT"}</p>
-                    </div>
-
-                </div> */}
 
                 <div className={styles.body}>
                     <div className={styles.inputContainer}>
@@ -82,7 +59,7 @@ const SwapWindow = () => {
                     </div>
 
 
-                    <SwitchButton>
+                    <SwitchButton variant='flat'>
                         <Image src={switchIcon} width={31} height={32} alt="Switch icon" />
                     </SwitchButton>
 
