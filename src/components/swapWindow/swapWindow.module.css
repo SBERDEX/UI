@@ -1,0 +1,41 @@
+.mainContainer{
+    background: #C3C3C3;
+    box-shadow: 4px 4px 0px #818181;
+    width: 400px;
+    height: 500px;
+    margin-bottom: 70px;
+}
+
+.header{
+    width: 400px;
+    height: 40px;
+    background: #010081;
+    display: flex;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 11px;
+}
+
+.headerText{
+    font-family: 'Grotesque';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 24px;
+    color: #FFFFFF;
+}
+
+.body{
+    display: flex;
+    flex-direction: column;
+    height: 460px;
+    padding-top: 16px;
+    padding-left: 8px;
+    padding-bottom: 16px;
+    padding-right: 8px;
+}
+
+.inputContainer{
+    display: flex;
+    
+}
