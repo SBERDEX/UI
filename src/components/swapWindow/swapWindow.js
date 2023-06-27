@@ -84,7 +84,7 @@ const SwapWindow = () => {
                     <div className={styles.slippage}>
                         <p className={styles.slippageText}>Slippage tolerance: {0.1}&#37;</p>
                         <Button square variant='flat'>
-                            <Image src={gearIcon} width={25} />
+                            <Image src={gearIcon} width={25} alt="Slippage settings Icon"/>
                         </Button>
                     </div>
 
