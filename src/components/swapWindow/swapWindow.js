@@ -1,9 +1,11 @@
 'use client';
-import styles from "./swapWindow.module.css"
+import styles from "./swapWindow.module.css";
 import { TextInput, Select, Button } from "react95";
 import styled from "styled-components";
 import Image from "next/image";
 import switchIcon from "../../../public/Icons/switch.png";
+import updateIcon from "../../../public/Icons/updateIcon.png";
+import gearIcon from "../../../public/Icons/SetGear.png";
 
 const StyledInput = styled(TextInput)`
     height: 50px;
@@ -30,6 +32,10 @@ const SwitchButton = styled(Button)`
     width: 40px;
     margin-bottom: 15px;
     margin-left: 170px;
+`
+
+const SwapButton = styled(Button)`
+    height: 60px;
 `
 
 const SwapWindow = () => {
@@ -70,7 +76,20 @@ const SwapWindow = () => {
 
                     <div className={styles.rate}>
                         <p className={styles.rateText}>{"1"} {"USDT"} = {"80"} {"RUBT"}</p>
+                        <Button square>
+                            <Image src={updateIcon} width={25} alt="Refrash rate icon"/>
+                        </Button>
                     </div>
+
+                    <div className={styles.slippage}>
+                        <p className={styles.slippageText}>Slippage tolerance: {0.1}&#37;</p>
+                        <Button square variant='flat'>
+                            <Image src={gearIcon} width={25} />
+                        </Button>
+                    </div>
+
+                    <SwapButton><p className={styles.swapButtonText}>Swap</p></SwapButton>
+
                 </div>
 
             </div>

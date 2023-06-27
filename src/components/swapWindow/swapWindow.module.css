@@ -2,8 +2,8 @@
     background: #C3C3C3;
     box-shadow: 4px 4px 0px #818181;
     width: 400px;
-    height: 500px;
-    margin-bottom: 70px;
+    height: 450px;
+    margin-bottom: 110px;
 }
 
 .header{
@@ -41,6 +41,9 @@
 
 .rate{
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
 }
 
 .rateText{
@@ -48,4 +51,26 @@
     font-size: 24px;
     font-weight: 400;
     line-height: 24px;
+}
+
+.slippage{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.slippageText{
+    font-family: 'Grotesque';
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.swapButtonText{
+    font-family: 'Grotesque';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 28px;
 }
