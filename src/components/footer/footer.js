@@ -1,16 +1,17 @@
+'use client';
 import styles from "./footer.module.css";
 import Image from "next/image";
-import logo from "../../../public/Icons/MZKb.png"
+import { useSelector } from "react-redux";
 
 const Footer = () => {
+    const currentAccount = useSelector(state => state.account.account);
+
     return ( 
         <div className={styles.mainContainer}>
-                {/* <Image src={logo} width={128} height={110} alt="Logo"/> */}
                 <p className={styles.footerText}>SBERDEX by MetaZK</p>
-                {/* <p className={styles.footerText}>2023</p> */}
                 <div className={styles.walletStatus}>
-                    {/* <Image /> */}
-                    <p className={styles.walletStatusText}>Wallet Connected</p>
+                    {currentAccount.length > 0 ? <p className={styles.walletStatusText}>Wallet Connected</p> : <p className={styles.walletStatusText}>Wallet is not Connected</p>}
+                    
                 </div>
         </div>
      );
