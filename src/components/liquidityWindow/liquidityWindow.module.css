@@ -3,7 +3,7 @@
     box-shadow: 4px 4px 0px #818181;
     width: 807px;
     /* height: 500px; */
-    margin-bottom: 105px;
+    margin-bottom: 70px;
 }
 
 .header{
@@ -37,10 +37,13 @@
 
 .section{
     width: 385px;
-    height: 210px;
+    height: 230px;
     border: 1px solid #010081;
     margin: 5px;
     padding: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .mainText{
@@ -50,14 +53,14 @@
     font-size: 24px;
     line-height: 24px;
     color: black;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 }
 
 .smallTextWrap{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 }
 
 .smallText{
