@@ -1,7 +1,7 @@
 'use client';
 import styles from "./liquidityWindow.module.css"
 import styled from "styled-components";
-import { Select, TextInput } from "react95";
+import { Select, TextInput, NumberInput, Button } from "react95";
 
 const StyledInput = styled(TextInput)`
     height: 50px;
@@ -21,7 +21,24 @@ const StyledSelect = styled(Select)`
     font-weight: 400;
     font-size: 24px;
     line-height: 24px;
+`
+
+const StyledNumberInput = styled(NumberInput)`
+    height: 50px;
+    font-family: 'Grotesque';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 24px;
+`
+
+const StyledButton = styled(Button)`
     
+    font-family: 'Grotesque';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 24px;
 `
 
 const LiquidityWindow = () => {
@@ -79,6 +96,11 @@ const LiquidityWindow = () => {
 
                 <div className={styles.section} id="price">
                     <p className={styles.mainText}>Set a price range:</p>
+                    <p className={styles.smallText}>Max price</p>
+                    <StyledNumberInput width={376} defaultValue={1995}/>
+                    <p className={styles.smallText}>Min price</p>
+                    <StyledNumberInput width={376} defaultValue={2010}/>
+                    <StyledButton fullWidth>Full range</StyledButton>
                 </div>
 
             </div>
