@@ -1,3 +1,4 @@
+'use client';
 import styles from "./pairs.module.css"
 import styled from "styled-components";
 import { Select, TextInput } from "react95";
