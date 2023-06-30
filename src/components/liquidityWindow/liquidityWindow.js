@@ -1,27 +1,8 @@
 'use client';
 import styles from "./liquidityWindow.module.css"
 import styled from "styled-components";
-import { Select, TextInput, NumberInput, Button } from "react95";
-
-const StyledInput = styled(TextInput)`
-    height: 50px;
-    width: 290px;
-    font-family: 'Grotesque';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 24px;
-    margin-bottom: 15px;
-`
-
-const StyledSelect = styled(Select)`
-    height: 50px;
-    font-family: 'Grotesque';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 24px;
-`
+import { NumberInput, Button } from "react95"
+import Pairs from "./liquidityWindowComponents/pairs/pairs";
 
 const StyledNumberInput = styled(NumberInput)`
     font-family: 'Grotesque';
@@ -60,28 +41,7 @@ const LiquidityWindow = () => {
             <div className={styles.body}>
 
                 <div className={styles.section} id="pairs">
-                    <p className={styles.mainText}>Select pair and deposit amounts:</p>
-                    <div>
-                        <div className={styles.smallTextWrap}>
-                            <p className={styles.smallText}>Token A</p>
-                            <p className={styles.smallText}>Balance: {"1000"}</p>
-                        </div>
-                        
-                        <div className={styles.inputWrap}>
-                            <StyledInput type="number"  placeholder="Я МАМУ ВИТАЛИКА БУТЕРИНА НА ХУЮ ВЕРТЕЛ" />
-                            <StyledSelect options={currenciesFirst}  />
-                        </div>
-
-                        <div className={styles.smallTextWrap}>
-                            <p className={styles.smallText}>Token B</p>
-                            <p className={styles.smallText}>Balance: {"1000"}</p>
-                        </div>
-                        
-                        <div className={styles.inputWrap}>
-                            <StyledInput type="number"  placeholder="Я МАМУ ВИТАЛИКА БУТЕРИНА НА ХУЮ ВЕРТЕЛ" />
-                            <StyledSelect options={currenciesSecond}  />
-                        </div>
-                    </div>
+                    <Pairs />
                 </div>
 
                 <div className={styles.section} id="pools">
