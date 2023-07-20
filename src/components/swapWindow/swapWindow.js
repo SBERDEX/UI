@@ -6,7 +6,7 @@ import Image from "next/image";
 import switchIcon from "../../../public/Icons/switch.png";
 import updateIcon from "../../../public/Icons/updateIcon.png";
 import gearIcon from "../../../public/Icons/SetGear.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const StyledInput = styled(TextInput)`
     height: 50px;
@@ -46,6 +46,19 @@ const SwapWindow = () => {
     const [token0, setToken0] = useState(0);
     const [token1, setToken1] = useState(0);
 
+    const [zeroForOne, setZeroForOne] = useState(true);
+    const [amount0, setAmount0] = useState(0);
+    const [amount1, setAmount1] = useState(0);
+    const [tokenIn, setTokenIn] = useState();
+    const [manager, setManager] = useState();
+    const [quoter, setQuoter] = useState();
+    const [loading, setLoading] = useState(false);
+    const [addingLiquidity, setAddingLiquidity] = useState(false);
+    const [removingLiquidity, setRemovingLiquidity] = useState(false);
+    const [tokens, setTokens] = useState();
+    const [path, setPath] = useState();
+    const [pathFinder, setPathFinder] = useState();
+
     const currenciesFirst = [
         { value: "usdt", label: "USDT" },
         { value: "eth", label: "ETH" }
@@ -73,6 +86,10 @@ const SwapWindow = () => {
         console.log(value.target.value)
         setToken1(value.target.value);
     }
+
+    useEffect(() =>{
+        
+    })
 
     return (
         <>

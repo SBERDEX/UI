@@ -1,5 +1,5 @@
-import { InfuraProvider } from "ethers";
+import { JsonRpcProvider } from "ethers";
 
-const defaultProvider = new InfuraProvider(process.env.networkName);
+const defaultProvider = new JsonRpcProvider('https://rpc.test.siberium.net');
 
 export default defaultProvider;
