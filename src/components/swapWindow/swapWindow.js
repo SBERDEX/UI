@@ -1,11 +1,12 @@
 'use client';
 import styles from "./swapWindow.module.css";
-import { TextInput, Select, Button } from "react95";
+import { TextInput, Select, Button, NumberInput } from "react95";
 import styled from "styled-components";
 import Image from "next/image";
 import switchIcon from "../../../public/Icons/switch.png";
 import updateIcon from "../../../public/Icons/updateIcon.png";
 import gearIcon from "../../../public/Icons/SetGear.png";
+import { useState } from "react";
 
 const StyledInput = styled(TextInput)`
     height: 50px;
@@ -39,6 +40,7 @@ const SwapButton = styled(Button)`
 `
 
 const SwapWindow = () => {
+    const [slippage, setSlippage] = useState(0.1);
 
     const currenciesFirst = [
         { value: "usdt", label: "USDT" },
@@ -49,6 +51,15 @@ const SwapWindow = () => {
         { value: "eth", label: "ETH" },
         { value: "usdt", label: "USDT" },   
     ];
+
+    const handleNumberInputChange = (value) => {
+        // Do something with the updated value
+        if(value !== NaN){
+            console.log(value)
+            setSlippage(value);
+        }
+
+      };
 
     return (
         <>
@@ -82,10 +93,13 @@ const SwapWindow = () => {
                     </div>
 
                     <div className={styles.slippage}>
-                        <p className={styles.slippageText}>Slippage tolerance: {0.1}&#37;</p>
-                        <Button square variant='flat'>
+                        <p className={styles.slippageText}>
+                            Slippage tolerance: 
+                        </p>
+                        {/* <Button square variant='flat'>
                             <Image src={gearIcon} width={25} alt="Slippage settings Icon"/>
-                        </Button>
+                        </Button> */}
+                        <NumberInput defaultValue={slippage}  onChange={handleNumberInputChange} width={80}  min={0.1} max={100} step={0.1}/>
                     </div>
 
                     <SwapButton><p className={styles.swapButtonText}>Swap</p></SwapButton>
