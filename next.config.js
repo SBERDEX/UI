@@ -2,6 +2,7 @@
 const nextConfig = {
     env: {
         networkName: "goerli",
+        factoryAddress: '0x0630e95DEcF7A8C171f41CD36f29741cE2Bb0b49',
         ABIs: {
             'ERC20': require('./src/abi/ERC20.json'),
             'Factory': require('./src/abi/Factory.json'),
