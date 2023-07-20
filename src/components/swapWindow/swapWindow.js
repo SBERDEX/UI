@@ -41,6 +41,8 @@ const SwapButton = styled(Button)`
 
 const SwapWindow = () => {
     const [slippage, setSlippage] = useState(0.1);
+    const [token0, setToken0] = useState(0);
+    const [token1, setToken1] = useState(0);
 
     const currenciesFirst = [
         { value: "usdt", label: "USDT" },
@@ -58,8 +60,17 @@ const SwapWindow = () => {
             console.log(value)
             setSlippage(value);
         }
+    };
 
-      };
+    const handleToken0Change = (value) => {
+        console.log(value.target.value)
+        setToken0(value.target.value);
+    }
+
+    const handleToken1Change = (value) => {
+        console.log(value.target.value)
+        setToken1(value.target.value);
+    }
 
     return (
         <>
@@ -71,7 +82,7 @@ const SwapWindow = () => {
 
                 <div className={styles.body}>
                     <div className={styles.inputContainer}>
-                        <StyledInput fullWidth type="number"  placeholder="Type here..."/>
+                        <StyledInput fullWidth type="number" onChange={handleToken0Change}  placeholder="Enter amount of tokens"/>
                         <StyledSelect width={110} options={currenciesFirst} />
                     </div>
 
@@ -81,7 +92,7 @@ const SwapWindow = () => {
                     </SwitchButton>
 
                     <div className={styles.inputContainer}>
-                        <StyledInput fullWidth type="number"  placeholder="Type here..."/>
+                        <StyledInput fullWidth type="number" onChange={handleToken1Change}  placeholder="Enter amount of tokens"/>
                         <StyledSelect  width={110} options={currenciesSecond} />
                     </div>
 
