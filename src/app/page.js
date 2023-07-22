@@ -18,9 +18,9 @@ export default function Home() {
                     <p>Using our app on a mobile device? Please switch to desktop view for better usability.</p>
                 </div>
               
-                <h1><a className={styles.link} href=""> Launch App</a></h1>
-                <h1><a className={styles.link} href=""> Our GitHub</a></h1>
-                <h1><a className={styles.link} href=""> Socials</a></h1>
+                <h1><a className={styles.link} href="">&#8227; Launch App</a></h1>
+                <h1><a className={styles.link} href="">&#8227; Our GitHub</a></h1>
+                <h1><a className={styles.link} href="">&#8227; Socials</a></h1>
         </div>
     </div>
     <h1 className={styles.version}>v01.00</h1>
