@@ -14,7 +14,7 @@ const Footer = () => {
             <>
             {currentPage && (                               
                  <div className={styles.mainContainer}>
-                <p className={styles.footerText}>SBERDEX by MetaZK</p>
+                <p className={styles.footerText}>PixelDEX by MetaZK</p>
                 <div className={styles.walletStatus}>
                     {walletStatus ? <p className={styles.walletStatusText}>Wallet Connected</p> : <p className={styles.walletStatusText}>Wallet is not Connected</p>}
                     
