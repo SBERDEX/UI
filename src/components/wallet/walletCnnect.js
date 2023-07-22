@@ -109,7 +109,7 @@ const walletConnect = () => {
 
                         <div className={styles.statusContainer}>
                             <p className={styles.statusText}>Balance: </p>
-                            <p className={styles.balance}>{currentBalance} SIBR</p>
+                            <p className={styles.balance}>{currentBalance.substring(0,6)} SIBR</p>
                         </div>
 
                         <div className={styles.addressContainerTwo}>
