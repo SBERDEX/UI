@@ -5,3 +5,53 @@
   min-height: 100vh; 
 }
 
+
+.body {
+  background-color: #000;
+  color: #fff;
+  font-weight: 400;
+  font-family: Terminal Grotesque;
+}
+.header {
+  text-align: center;
+  padding: 20px;
+  font-size: 36px;
+}
+
+.ramka {
+  margin: 0 auto;
+  border: 3px solid #ffffff;
+  padding: 20px;
+}
+
+.logo {
+  margin-top: 150px;
+  text-align: center;
+}
+
+.logo img {
+  display: block;
+  margin: 0 auto;
+}
+
+.content {
+  text-align: left;
+  margin-top: 20px;
+  font-size: 36px;
+}
+.version{
+  text-align: center;
+}
+.link{
+  color: #fff;
+  transition: color 0.3s;
+}
+.link:hover{
+  color: purple;
+  font-size: 1.1em;
+}
+
+.note {
+    margin-top: 20px;
+    text-align: left;
+   }
