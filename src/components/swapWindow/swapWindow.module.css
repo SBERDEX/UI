@@ -46,6 +46,21 @@
     margin-bottom: 32px;
 }
 
+.switchLink{
+    height: 50px;
+    width: 40px;
+    margin-bottom: 15px;
+    margin-left: 170px;
+    border: 3px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.switchLink:hover{
+    border: 3px solid #010081;
+}
+
 .rateText{
     font-family: 'Grotesque';
     font-size: 24px;

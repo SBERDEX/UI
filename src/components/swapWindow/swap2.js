@@ -2,10 +2,7 @@ import { ethers } from 'ethers';
 import { useContext, useEffect, useState } from 'react';
 import { uint256Max } from '../lib/constants';
 import { MetaMaskContext } from '../contexts/MetaMask';
-import process.env from "../process.env.js";
 import debounce from '../lib/debounce';
-import AddLiquidityForm from './AddLiquidityForm';
-import RemoveLiquidityForm from './RemoveLiquidityForm';
 import PathFinder from '../lib/pathFinder';
 
 const pairsToTokens = (pairs) => {
@@ -33,6 +30,8 @@ const pathToTypes = (path) => {
   return ["address"].concat(new Array(countPathTokens(path) - 1).fill(["uint24", "address"]).flat());
 }
 
+
+//доделать
 const SwapInput = ({ token, tokens, onChange, amount, setAmount, disabled, readOnly }) => {
   return (
     <fieldset className="SwapInput" disabled={disabled}>
@@ -46,10 +45,13 @@ const SwapInput = ({ token, tokens, onChange, amount, setAmount, disabled, readO
 
 const ChangeDirectionButton = ({ onClick, disabled }) => {
   return (
-    <button className='ChangeDirectionBtn' onClick={onClick} disabled={disabled}>🔄</button>
+    <SwitchButton  onClick={onClick} disabled={disabled}  variant='flat'>
+        <Image src={switchIcon} width={31} height={32} alt="Switch icon" />
+    </SwitchButton>
   )
 }
 
+// убрать 
 const SlippageControl = ({ setSlippage, slippage }) => {
   return (
     <fieldset className="SlippageControl">
@@ -295,23 +297,7 @@ const SwapForm = ({ setPairs }) => {
 
   return (
     <section className="SwapContainer">
-      {addingLiquidity &&
-        <AddLiquidityForm
-          toggle={toggleAddLiquidityForm}
-          token0Info={tokens.filter(t => t.address === path[0])[0]}
-          token1Info={tokens.filter(t => t.address === path[2])[0]}
-          fee={path[1]} />}
-      {removingLiquidity &&
-        <RemoveLiquidityForm
-          toggle={toggleRemoveLiquidityForm}
-          token0Info={tokens.filter(t => t.address === path[0])[0]}
-          token1Info={tokens.filter(t => t.address === path[2])[0]}
-          fee={path[1]} />}
-      <header>
         <h1>Swap tokens</h1>
-        <button disabled={!enabled || loading} onClick={toggleAddLiquidityForm}>Add liquidity</button>
-        <button disabled={!enabled || loading} onClick={toggleRemoveLiquidityForm}>Remove liquidity</button>
-      </header>
       {path ?
         <form className="SwapForm">
           <SwapInput

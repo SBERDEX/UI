@@ -42,7 +42,7 @@ const SwapButton = styled(Button)`
 
 
 
-const SwapWindow = () => {
+const SwapSwitch = () => {
     const [slippage, setSlippage] = useState(2);
     const [inputAmount, setInputAmount] = useState(0);
     const [outputAmount, setOutputAmount] = useState(0);
@@ -88,20 +88,20 @@ const SwapWindow = () => {
                 <div className={styles.body}>
                     <div className={styles.inputContainer}>
                         <StyledInput fullWidth type="number" onChange={handleToken0Change}  placeholder="Enter amount of tokens"/>
-                        <StyledSelect width={110} options={currenciesFirst} />
+                        <StyledSelect width={110} options={currenciesSecond} />
                     </div>
 
 
                     {/* <SwitchButton variant='flat'> */}
-                    <Link className={styles.switchLink} href="/swapSwitch">
-                        <Image src={switchIcon} width={31} height={32} alt="Switch icon" />
+                    <Link className={styles.switchLink} href="/swap">
+                    <Image src={switchIcon} width={31} height={32} alt="Switch icon" />
                     </Link>
-                        
+                       
                     {/* </SwitchButton> */}
 
                     <div className={styles.inputContainer}>
                         <StyledInput fullWidth type="number" onChange={handleToken1Change}  placeholder="Enter amount of tokens"/>
-                        <StyledSelect  width={110} options={currenciesSecond} />
+                        <StyledSelect  width={110} options={currenciesFirst} />
                     </div>
 
                     <div className={styles.rate}>
@@ -130,4 +130,4 @@ const SwapWindow = () => {
     );
 }
  
-export default SwapWindow;
+export default SwapSwitch;
