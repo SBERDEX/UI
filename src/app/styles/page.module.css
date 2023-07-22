@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 100vh; 
+  height: 100%;
 }
 
 
@@ -14,18 +14,18 @@
 }
 .header {
   text-align: center;
-  padding: 20px;
+  padding: 10px;
   font-size: 36px;
 }
 
 .ramka {
   margin: 0 auto;
   border: 3px solid #ffffff;
-  padding: 20px;
+  padding: 10px;
 }
 
 .logo {
-  margin-top: 150px;
+  margin-top: 50px;
   text-align: center;
 }
 
@@ -36,7 +36,7 @@
 
 .content {
   text-align: left;
-  margin-top: 20px;
+  margin-top: 10px;
   font-size: 36px;
 }
 .version{
@@ -52,6 +52,6 @@
 }
 
 .note {
-    margin-top: 20px;
+    margin-top: 10px;
     text-align: left;
    }
