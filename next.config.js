@@ -4,6 +4,7 @@ const nextConfig = {
         networkName: "goerli",
         factoryAddress: '0x0630e95DEcF7A8C171f41CD36f29741cE2Bb0b49',
         quoterAddress: '0x772e6e8abA0d91E599514ADF40f505D9FDc06d7c',
+        wethAddress: '0x5FbDB2315678afecb367f032d93F642f64180aa3',
 
         ABIs: {
             'ERC20': require('./src/abi/ERC20.json'),

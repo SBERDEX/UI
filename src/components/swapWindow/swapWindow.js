@@ -42,22 +42,13 @@ const SwapButton = styled(Button)`
 
 
 const SwapWindow = () => {
-    const [slippage, setSlippage] = useState(0.1);
-    const [token0, setToken0] = useState(0);
-    const [token1, setToken1] = useState(0);
-
-    const [zeroForOne, setZeroForOne] = useState(true);
-    const [amount0, setAmount0] = useState(0);
-    const [amount1, setAmount1] = useState(0);
-    const [tokenIn, setTokenIn] = useState();
-    const [manager, setManager] = useState();
-    const [quoter, setQuoter] = useState();
+    const [slippage, setSlippage] = useState(2);
+    const [inputAmount, setInputAmount] = useState(0);
+    const [outputAmount, setOutputAmount] = useState(0);
+    const [transaction, setTransaction] = useState(undefined);
     const [loading, setLoading] = useState(false);
-    const [addingLiquidity, setAddingLiquidity] = useState(false);
-    const [removingLiquidity, setRemovingLiquidity] = useState(false);
-    const [tokens, setTokens] = useState();
-    const [path, setPath] = useState();
-    const [pathFinder, setPathFinder] = useState();
+    const [ratio, setRatio] = useState(undefined);
+
 
     const currenciesFirst = [
         { value: "usdt", label: "USDT" },
@@ -79,17 +70,13 @@ const SwapWindow = () => {
 
     const handleToken0Change = (value) => {
         console.log(value.target.value)
-        setToken0(value.target.value);
+        setInputAmount(value.target.value);
     }
 
     const handleToken1Change = (value) => {
         console.log(value.target.value)
-        setToken1(value.target.value);
+        setOutputAmount(value.target.value);
     }
-
-    useEffect(() =>{
-        
-    })
 
     return (
         <>

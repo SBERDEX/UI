@@ -1,6 +1,6 @@
 'use client';
 import styles from "./walletConnect.module.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 // import Image from "next/image";
 // import tick from "../../../public/Icons/StatusCheck.png"
 import { useSelector } from "react-redux";
@@ -29,6 +29,10 @@ const walletConnect = () => {
     const currentAccount = useSelector(state => state.account.account);
     const currentBalance = useSelector(state => state.balance.balance);
     const dispatch = useDispatch();
+    const [wethContract, setWethContract] = useState(undefined);
+    const [uniContracr, setUniContract] = useState(undefined);
+    const [wethAmount, setWethAmount] = useState(undefined);
+    const [uniAmount, setUniAmount] = useState(undefined);
 
     const { disconnect } = useDisconnect();
     const { connectors, connect } = useConnect();
@@ -41,9 +45,14 @@ const walletConnect = () => {
               try{
                 getCurrentWalletConnected();
                 walletListener();
-                  if(currentAccount){
-                      dispatch(setBalance(await getBalance()));
-                  }
+                if(currentAccount){
+                    dispatch(setBalance(await getBalance()));
+                }
+                const wethContract = getWethContract();
+                setWethContract(wethContract);
+
+                const uniContract = getUniContract();
+                setUniContract(uniContract);
               }
               catch(error){
                   console.error(error);
@@ -55,23 +64,6 @@ const walletConnect = () => {
       const balance = await defaultProvider.getBalance(currentAccount);
       return formatEther(balance);
     }
-
-    // const handleWalletConnect = async () =>{
-    //     if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
-    //         try {
-    //           const accounts = await walletProvider.send(
-    //             "eth_requestAccounts",
-    //             []
-    //           );
-    //           dispatch(setAccount(accounts[0]));
-    //           console.log(accounts[0]);
-    //         } catch (err) {
-    //           console.error(err.message);
-    //         }
-    //       } else {
-    //         alert("Please install MetaMask");
-    //       }
-    // }
 
     const getCurrentWalletConnected = async () =>{
         if (typeof window != "undefined" && typeof window.ethereum != "undefined") {

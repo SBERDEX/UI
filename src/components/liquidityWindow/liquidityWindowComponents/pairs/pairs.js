@@ -45,7 +45,7 @@ const Pairs = () => {
                     </div>
                     
                     <div className={styles.inputWrap}>
-                        <StyledInput type="number"  placeholder="Я МАМУ ВИТАЛИКА БУТЕРИНА НА ХУЮ ВЕРТЕЛ" />
+                        <StyledInput type="number"  placeholder="" />
                         <StyledSelect options={currenciesFirst}  />
                     </div>
 
@@ -55,7 +55,7 @@ const Pairs = () => {
                     </div>
                     
                     <div className={styles.inputWrap}>
-                        <StyledInput type="number"  placeholder="Я МАМУ ВИТАЛИКА БУТЕРИНА НА ХУЮ ВЕРТЕЛ" />
+                        <StyledInput type="number"  placeholder="" />
                         <StyledSelect options={currenciesSecond}  />
                     </div>
                 </div>
