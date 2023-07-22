@@ -11,7 +11,7 @@ const Footer = () => {
 
     return ( 
             <>
-            {(pathname === "/landing" || pathname === "/swap") && (                               
+            {(pathname === "/swap" || pathname === "/liquidity") && (                               
                  <div className={styles.mainContainer}>
                 <p className={styles.footerText}>PixelDEX by MetaZK</p>
                 <div className={styles.walletStatus}>

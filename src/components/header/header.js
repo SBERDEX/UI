@@ -14,7 +14,7 @@ const Header = () => {
     return ( 
     <> 
         {
-            (pathname === "/landing" || pathname === "/swap") && (
+            (pathname === "/liquidity" || pathname === "/swap") && (
                 <div className={styles.mainContainer}>
                 <div className={styles.linkContainer}>
                     <Link href="/liquidity">
