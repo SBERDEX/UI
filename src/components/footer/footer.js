@@ -2,17 +2,16 @@
 import styles from "./footer.module.css";
 import Image from "next/image";
 import { useSelector } from "react-redux";
-import { useRouter } from "next/navigation";
+import { usePathname } from 'next/navigation';
 
 const Footer = () => {
     const walletStatus = useSelector(state => state.isConnected.isConnected);
-    const router = useRouter();
-    const currentPage = router.pathname;
+    const pathname = usePathname();
 
 
     return ( 
             <>
-            {currentPage && (                               
+            {(pathname === "/landing" || pathname === "/swap") && (                               
                  <div className={styles.mainContainer}>
                 <p className={styles.footerText}>PixelDEX by MetaZK</p>
                 <div className={styles.walletStatus}>

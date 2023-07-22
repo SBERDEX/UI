@@ -5,18 +5,16 @@ import liqIcon from "../../../public/Icons/LiqRubIcon.png";
 import Link from "next/link";
 import styles from "./header.module.css";
 import Image from "next/image";
-import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 
 const Header = () => {
-    const router = useRouter();
-    const currentPage = router.pathname;
-    console.log(currentPage)
+    const pathname = usePathname();
 
     return ( 
     <> 
         {
-            currentPage && (
+            (pathname === "/landing" || pathname === "/swap") && (
                 <div className={styles.mainContainer}>
                 <div className={styles.linkContainer}>
                     <Link href="/liquidity">
@@ -30,8 +28,8 @@ const Header = () => {
                     </Link>
                 </div>
                 <WalletConnect />
-            </div>
-            )
+                </div>
+            ) 
         }
 
     </> 
