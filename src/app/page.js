@@ -19,9 +19,11 @@ export default function Home() {
                     <p>Using our app on a mobile device? Please switch to desktop view for better usability.</p>
                 </div>
               
-                <h1><Link className={styles.link} href="/swap">&#8227; Launch App</Link></h1>
+                {/* <h1><Link className={styles.link} href="/swap">&#8227; Launch App</Link></h1> */}
+                <h1><a className={styles.link} href="https://ui-interface.vercel.app/">&#8227; Launch App</a></h1>
                 <h1><a className={styles.link} href="https://github.com/SBERDEX">&#8227; Our GitHub</a></h1>
-                <h1><a className={styles.link} href="">&#8227; Socials</a></h1>
+                <h1><a className={styles.link} href="https://docs.google.com/document/d/1vIM0ztFx9_o7lVUaADwDeTqAqXkgK-XAW4jya5ZRJBE/edit?usp=sharing">&#8227; Guide</a></h1>
+                <h1><a className={styles.link} href="https://docs.google.com/presentation/d/1ISjhCT6aBnpEKnxTiYrbqRcLVWbgthjJXLcdzbZKqow/edit#slide=id.g25abe6ef1b0_0_135">&#8227; Presentation</a></h1>
         </div>
     </div>
     <h1 className={styles.version}>v01.00</h1>
